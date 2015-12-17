@@ -1,0 +1,6 @@
+---
+- name: Ensure that we have a AWS config dir
+  file: path=~/.aws state=directory
+- name: Ensures that aws-cli is configured
+  template: src=aws_config dest=~/.aws/config
+

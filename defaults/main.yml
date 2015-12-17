@@ -1,0 +1,8 @@
+---
+aws_bucket_name: ''
+aws_access_key: ''
+aws_secret_key: ''
+# args: src, dest, freq
+backup_syncs: []
+# args: command, dest, freq
+backup_pipes: []

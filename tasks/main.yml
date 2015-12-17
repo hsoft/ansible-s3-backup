@@ -1,0 +1,10 @@
+---
+- assert:
+    that:
+      - aws_access_key != ''
+      - aws_secret_key != ''
+      - aws_bucket_name != ''
+- include: system.yml
+- include: config.yml
+- include: cron.yml
+
