@@ -8,7 +8,7 @@
     day: "{{ item.day | default('*') }}"
     month: "{{ item.month | default('*') }}"
     weekday: "{{ item.weekday | default('*') }}"
-    job: "{{ item.command }} | aws s3 cp - s3://{{ aws_bucket_name }}/{{ item.dest }}"
+    job: "{{ item.command }} | /usr/local/bin/aws s3 cp - s3://{{ aws_bucket_name }}/{{ item.dest }}"
   with_items: "{{ backup_pipes }}"
 - name: Setup sync crons
   cron:
@@ -19,5 +19,5 @@
     day: "{{ item.day | default('*') }}"
     month: "{{ item.month | default('*') }}"
     weekday: "{{ item.weekday | default('*') }}"
-    job: "aws s3 sync {{ item.src }} s3://{{ aws_bucket_name }}/{{ item.dest }}"
+    job: "/usr/local/bin/aws s3 sync {{ item.src }} s3://{{ aws_bucket_name }}/{{ item.dest }}"
   with_items: "{{ backup_syncs }}"
